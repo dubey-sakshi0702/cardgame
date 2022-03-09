@@ -42,13 +42,27 @@ player_two=Player("two")
 for x in range(7):
 	player_one.add_cards(new_deck.deal())
 	player_two.add_cards(new_deck.deal())
+count=0
+print ("Round			player one card 			player two create_card			round won by")
 while len(player_one.all_cards) > 0 and len(player_two.all_cards) >0:
-	X1=player_two.all_cards.pop().value
-	X2=player_one.all_cards.pop().value
-	if X1>X2
-	
-	print()
+	count+=1
+	X1=player_two.remove_one()
+	X2=player_one.remove_one()
+	print(count," "*20,X1," "*25,X2, end =" "*20)
+	if X1.value>X2.value:
+		player_one.add_cards(X1)
+		player_one.add_cards(X2)
+		print("one")
+	elif X1.value<X2.value:
+		player_two.add_cards(X2)
+		player_two.add_cards(X1)
+		print("two")
+	else:
+		for x in range(3):
+			player_one.add_cards(new_deck.deal())
+			player_two.add_cards(new_deck.deal())
+		print("none")
 if len(player_one.all_cards)==0:
-	print ("player one wins")
+	print ("player two wins")
 else :
-	print("player_two wins")
+	print("player one wins")
